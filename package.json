@@ -4,20 +4,17 @@
     "description": "nestjs-mini",
     "author": "dingyanqiang",
     "scripts": {
-        "build-ts": "tsc",
-        "build": "npm run build-sass && npm run build-ts && npm run lint && npm run copy-static-assets",
-        "debug": "npm run build && npm run watch-debug",
-        "serve": "node dist/server.js",
-        "start": "npm run serve",
-        "watch-ts": "tsc -w"
+        "serve": "node dist/main.js"
     },
     "dependencies": {
-        "express": "4.17.1"
+        "express": "4.17.1",
+        "nodemon": "^2.0.14",
+        "reflect-metadata": "^0.1.13"
     },
     "devDependencies": {
         "@types/express": "4.17.11",
         "@types/node": "14.14.25",
-        "ts-node": "9.1.1",
+        "ts-node": "^9.1.1",
         "typescript": "4.1.3"
     }
 }
