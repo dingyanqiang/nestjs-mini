@@ -2,10 +2,9 @@
  * @Author: dingyanqiang
  * @Date: 2021-11-11 14:06:01
  * @LastEditors: dingyanqiang
- * @LastEditTime: 2021-11-16 16:31:07
+ * @LastEditTime: 2021-11-16 18:50:59
  * @Description: file content
  */
-import path from "path";
 import "reflect-metadata";
 
 type Construct<T = any> = new (...args: Array<any>) => T;
@@ -71,7 +70,8 @@ function Factory<T>(constructor: Construct<T>) {
     console.log('paramtypes:', paramtypes);
     let providers = paramtypes.map((provider: Construct<T>) => new provider());
     console.log('providers:', providers);
-    return new constructor(...providers);
+    let instanceController = new constructor(...providers);
+    return instanceController;
 }
 
 

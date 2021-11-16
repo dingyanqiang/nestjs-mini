@@ -4,7 +4,8 @@
     "description": "nestjs-mini",
     "author": "dingyanqiang",
     "scripts": {
-        "serve": "node dist/main.js"
+        "serve": "node dist/main.js",
+        "build": "tsc"
     },
     "dependencies": {
         "express": "4.17.1",

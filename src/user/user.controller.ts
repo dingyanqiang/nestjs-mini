@@ -2,7 +2,7 @@
  * @Author: dingyanqiang
  * @Date: 2021-11-11 14:30:21
  * @LastEditors: dingyanqiang
- * @LastEditTime: 2021-11-16 16:33:07
+ * @LastEditTime: 2021-11-16 18:54:41
  * @Description: file content
  */
 
@@ -17,7 +17,9 @@ export class UserController {
 
     @Get('findUser')
     getUserServiceMethods(): string {
-        return this.userService.getUserName();
+        let that = this;
+        let userName = this.userService.getUserName();
+        return userName;
     }
     @Get('findAll')
     findAll(): string {
