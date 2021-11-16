@@ -2,7 +2,7 @@
  * @Author: dingyanqiang
  * @Date: 2021-11-11 14:41:11
  * @LastEditors: dingyanqiang
- * @LastEditTime: 2021-11-16 19:07:08
+ * @LastEditTime: 2021-11-16 19:15:12
  * @Description: file content
  */
 
@@ -19,8 +19,7 @@ const port = 3000;
 // let instanceController = new UserController(new UserService)
 
 // 控制反转
-let instanceController = Factory(UserController)
-
+let instanceController = Factory(UserController);
 
 let controller = mapRoute(UserController);
 console.log('controller:', controller);
@@ -33,43 +32,12 @@ app.get('/*', (req, res) => {
             //let func = routeItem.func.bind(instanceController);
             //为方法重新绑定this指向
             let resData = routeItem.func.apply(instanceController);
-            res.end(resData);
+            return res.end(resData);
         }
     }
-    res.send('没有匹配路径')
+    return res.send('没有匹配路径')
 })
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
-})
-
-// http.createServer((req, res) => {
-//     for(let routeItem of controller.routes) {
-//         let routeName = routeItem.route;
-//         if(req.url === routeName) {
-//             //res.setHeader('Content-Type', 'text/palin');
-//             //let func = routeItem.func.bind(instanceController);
-//             //为方法重新绑定this指向
-//             let resData = routeItem.func.apply(instanceController);
-//             res.end(resData);
-//         }
-//     }
-//     //res.setHeader('Content-Type', 'text/palin');
-//     res.end('没有匹配路径');
-    
-// }).listen(3000, () => {
-//     console.log(`Port 3000 is listening`);
-// });
-
-
-
-
-
-
-// let User = Factory(UserController);
-// http.createServer((req, res) => {
-//     let methods = User.getUserServiceMethods();
-//     res.end(methods);
-// }).listen(3000, () => {
-//     console.log(`Port 3000 is listening`);
-// });
+});
